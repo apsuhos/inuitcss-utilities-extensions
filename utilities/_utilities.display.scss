@@ -1,0 +1,46 @@
+/**
+* ===========================================================================
+* DISPLAY
+* ===========================================================================
+*/
+
+/**
+*
+*	Utilities for controlling the display box type of an element.
+*
+* .u-table@mobile { display: table !important; }
+*
+*/
+
+$display-values: (
+	"hidden": none,
+	"block": block,
+	"flow-root": flow-root,
+	"inline-block": inline-block,
+	"inline": inline,
+	"flex": flex,
+	"inline-flex": inline-flex,
+	"grid": grid,
+	"inline-grid": inline-grid,
+	"table": table,
+	"table-caption": table-caption,
+	"table-cell": table-cell,
+) !default;
+
+@each $display-values-namespace, $value in $display-values {
+	.u-#{$display-values-namespace} {
+		display: $value !important;
+	}
+}
+
+@if $display-responsive == true {
+	@each $bp-name, $bp-value in $mq-breakpoints {
+		@include mq($from: $bp-name) {
+			@each $display-values-namespace, $value in $display-values {
+				.u-#{$display-values-namespace}\@#{$bp-name} {
+					display: $value !important;
+				}
+			}
+		}
+	}
+}

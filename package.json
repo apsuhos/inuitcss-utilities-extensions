@@ -1,0 +1,42 @@
+{
+	"name": "inuitcss-utilities-extensions",
+	"version": "1.0.0",
+	"description": "Utility extensions for inuitcss framework",
+	"main": "_index.scss",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/apsuhos/inuitcss-utilities-extensions.git"
+	},
+	"keywords": [
+		"inuitcss"
+	],
+	"author": "Konstantinos Antoniadis",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/apsuhos/inuitcss-utilities-extensions/issues"
+	},
+	"homepage": "https://github.com/apsuhos/inuitcss-utilities-extensions#readme",
+	"devDependencies": {
+		"husky": "^4.2.5",
+		"lint-staged": "^10.2.11",
+		"prettier": "^2.4.1",
+		"stylelint": "^14.0.1",
+		"stylelint-config-prettier": "^9.0.3",
+		"stylelint-config-sass-guidelines": "^9.0.1",
+		"stylelint-scss": "^4.0.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"**/*.scss": [
+			"stylelint --fix"
+		],
+		"*.{md,json,scss}": "prettier --write"
+	}
+}

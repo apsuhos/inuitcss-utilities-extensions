@@ -1,0 +1,58 @@
+/**
+* ===========================================================================
+* SPACE
+* ===========================================================================
+*/
+
+/**
+*
+*	Utilities for controlling the space between child elements.
+*
+* .u-space-x-huge > * + * { margin-left: 36px !important; }
+* .u-space-y-tiny@mobile > * + * { margin-top: 3px !important; }
+*
+*/
+
+$space-properties: (
+	"space": "margin",
+) !default;
+
+$space-direction-values: (
+	"-x": "left",
+	"-y": "top",
+) !default;
+
+$space-sizes: (
+	"-tiny": $inuit-global-spacing-unit-tiny,
+	"-small": $inuit-global-spacing-unit-small,
+	null: $inuit-global-spacing-unit,
+	"-large": $inuit-global-spacing-unit-large,
+	"-huge": $inuit-global-spacing-unit-huge,
+	"-none": 0,
+) !default;
+
+@each $property-namespace, $property in $space-properties {
+	@each $direction-namespace, $direction in $space-direction-values {
+		@each $size-namespace, $size in $space-sizes {
+			.u-#{$property-namespace}#{$direction-namespace}#{$size-namespace} > * + * {
+				#{$property}-#{$direction}: #{$size} !important;
+			}
+		}
+	}
+}
+
+@if $space-responsive == true {
+	@each $bp-name, $bp-value in $mq-breakpoints {
+		@each $property-namespace, $property in $space-properties {
+			@each $direction-namespace, $direction in $space-direction-values {
+				@include mq($from: $bp-name) {
+					@each $size-namespace, $size in $space-sizes {
+						.u-#{$property-namespace}#{$direction-namespace}#{$size-namespace}\@#{$bp-name} > * + * {
+							#{$property}-#{$direction}: #{$size} !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}

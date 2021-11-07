@@ -1,0 +1,39 @@
+/**
+* ===========================================================================
+* TEXT ALIGN
+* ===========================================================================
+*/
+
+/**
+*
+*	Utilities for controlling the alignment of text.
+*
+* .u-text-right 		{ text-align: right	 !important; }
+* .u-text-left@wide	{ text-align: left	 !important; }
+*
+*/
+
+$text-align-direction-values: (
+	"text-left": left,
+	"text-right": right,
+	"text-center": center,
+	"text-justify": justify,
+) !default;
+
+@each $direction-value-namespace, $direction-value in $text-align-direction-values {
+	.u-#{$direction-value-namespace} {
+		text-align: $direction-value !important;
+	}
+}
+
+@if $text-align-responsive == true {
+	@each $bp-name, $bp-value in $mq-breakpoints {
+		@include mq($from: $bp-name) {
+			@each $direction-value-namespace, $direction-value in $text-align-direction-values {
+				.u-#{$direction-value-namespace}\@#{$bp-name} {
+					text-align: $direction-value !important;
+				}
+			}
+		}
+	}
+}

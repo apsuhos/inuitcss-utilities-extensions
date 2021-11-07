@@ -1,0 +1,38 @@
+/**
+* ===========================================================================
+* FLOAT
+* ===========================================================================
+*/
+
+/**
+*
+*	Utilities for controlling the wrapping of content around an element.
+*
+* .u-float-right			{ float: right	!important; }
+* .u-float-left@wide	{ float: left		!important; }
+*
+*/
+
+$float-direction-values: (
+	"float-left": left,
+	"float-right": right,
+	"float-none": none,
+) !default;
+
+@each $direction-value-namespace, $direction-value in $float-direction-values {
+	.u-#{$direction-value-namespace} {
+		float: $direction-value !important;
+	}
+}
+
+@if $float-responsive == true {
+	@each $bp-name, $bp-value in $mq-breakpoints {
+		@include mq($from: $bp-name) {
+			@each $direction-value-namespace, $direction-value in $float-direction-values {
+				.u-#{$direction-value-namespace}\@#{$bp-name} {
+					float: $direction-value !important;
+				}
+			}
+		}
+	}
+}
