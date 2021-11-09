@@ -8,7 +8,6 @@ npm:
 
 ```
 npm install @pixelattack/inuitcss-utilities-extensions --save
-npm i
 ```
 
 Import the extension in the _utilities_ section of your main.scss:
