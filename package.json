@@ -1,6 +1,6 @@
 {
 	"name": "inuitcss-utilities-extensions",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Utility extensions for inuitcss framework",
 	"main": "_index.scss",
 	"scripts": {
