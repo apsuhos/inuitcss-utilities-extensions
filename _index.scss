@@ -2,8 +2,12 @@ $text-align-responsive: true !default;
 $float-responsive: true !default;
 $space-responsive: true !default;
 $display-responsive: true !default;
+$border-radius-responsive: true !default;
+$flex-responsive: true !default;
 
 @import "utilities/utilities.text-align";
 @import "utilities/utilities.float";
 @import "utilities/utilities.space";
 @import "utilities/utilities.display";
+@import "utilities/utilities.border-radius";
+@import "utilities/utilities.flex";
