@@ -1,0 +1,36 @@
+/**
+* ===========================================================================
+* FLEX
+* ===========================================================================
+*/
+
+/**
+*
+*	Utilities for controlling how flex items both grow and shrink.
+*
+*/
+
+$flex-values: (
+	"flex-1": 1 1 0%,
+	"flex-auto": 1 1 auto,
+	"flex-initial": 0 1 auto,
+	"flex-none": none,
+) !default;
+
+@each $flex-values-namespace, $value in $flex-values {
+	.u-#{$flex-values-namespace} {
+		flex: $value !important;
+	}
+}
+
+@if $flex-responsive == true {
+	@each $bp-name, $bp-value in $mq-breakpoints {
+		@include mq($from: $bp-name) {
+			@each $flex-values-namespace, $value in $flex-values {
+				.u-#{$flex-values-namespace}\@#{$bp-name} {
+					flex: $value !important;
+				}
+			}
+		}
+	}
+}
