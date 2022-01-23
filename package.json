@@ -1,6 +1,6 @@
 {
 	"name": "@pixelattack/inuitcss-utilities-extensions",
-	"version": "1.0.5",
+	"version": "1.2.0",
 	"description": "Utility extensions for inuitcss framework",
 	"main": "_index.scss",
 	"scripts": {
