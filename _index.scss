@@ -4,6 +4,7 @@ $space-responsive: true !default;
 $display-responsive: true !default;
 $border-radius-responsive: true !default;
 $flex-responsive: true !default;
+$flex-direction: true !default;
 
 @import "utilities/utilities.text-align";
 @import "utilities/utilities.float";
@@ -11,3 +12,4 @@ $flex-responsive: true !default;
 @import "utilities/utilities.display";
 @import "utilities/utilities.border-radius";
 @import "utilities/utilities.flex";
+@import "utilities/utilities.flex-direction";

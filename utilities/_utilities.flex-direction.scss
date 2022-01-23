@@ -1,0 +1,37 @@
+/**
+* ===========================================================================
+* FLEX DIRECTION
+* ===========================================================================
+*/
+
+/**
+*
+*	Utilities for controlling the direction of flex items.
+*
+*
+*/
+
+$flex-direction-values: (
+	"flex-row": row,
+	"flex-row-reverse": row-reverse,
+	"flex-column": column,
+	"flex-column-reverse": column-reverse,
+) !default;
+
+@each $direction-value-namespace, $direction-value in $flex-direction-values {
+	.u-#{$direction-value-namespace} {
+		flex-direction: $direction-value !important;
+	}
+}
+
+@if $flex-direction-responsive == true {
+	@each $bp-name, $bp-value in $mq-breakpoints {
+		@include mq($from: $bp-name) {
+			@each $direction-value-namespace, $direction-value in $flex-direction-values {
+				.u-#{$direction-value-namespace}\@#{$bp-name} {
+					flex-direction: $direction-value !important;
+				}
+			}
+		}
+	}
+}
