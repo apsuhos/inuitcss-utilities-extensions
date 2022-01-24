@@ -1,0 +1,38 @@
+/**
+* ===========================================================================
+* ALIGN ITEMS
+* ===========================================================================
+*/
+
+/**
+*
+*	Utilities for controlling how flex and grid items are positioned along a container's cross axis.
+*
+*
+*/
+
+$align-items-values: (
+	"items-start": flex-start,
+	"items-end": flex-end,
+	"items-center": center,
+	"items-baseline": baseline,
+	"items-stretch": stretch,
+) !default;
+
+@each $value-namespace, $value in $align-items-values {
+	.u-#{$value-namespace} {
+		align-items: $value !important;
+	}
+}
+
+@if $align-items-responsive == true {
+	@each $bp-name, $bp-value in $mq-breakpoints {
+		@include mq($from: $bp-name) {
+			@each $value-namespace, $value in $align-items-values {
+				.u-#{$value-namespace}\@#{$bp-name} {
+					align-items: $value !important;
+				}
+			}
+		}
+	}
+}
