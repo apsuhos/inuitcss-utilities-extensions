@@ -1,0 +1,39 @@
+/**
+* ===========================================================================
+* TEXT TRANSFORM
+* ===========================================================================
+*/
+
+/**
+*
+*	Utilities for controlling the transformation of text.
+*
+*
+*/
+
+$text-transform-values: (
+	"uppercase": uppercase,
+	"lowercase": lowercase,
+	"capitalize": capitalize,
+	"normal-case": normal-case,
+) !default;
+
+@each $value-namespace, $value in $text-transform-values {
+	.u-#{$value-namespace} {
+		text-transform: $value !important;
+	}
+}
+
+$text-transform-responsive: true;
+
+@if $text-transform-responsive == true {
+	@each $bp-name, $bp-value in $mq-breakpoints {
+		@include mq($from: $bp-name) {
+			@each $value-namespace, $value in $text-transform-values {
+				.u-#{$value-namespace}\@#{$bp-name} {
+					text-transform: $value !important;
+				}
+			}
+		}
+	}
+}
