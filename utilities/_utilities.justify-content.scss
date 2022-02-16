@@ -1,0 +1,40 @@
+/**
+* ===========================================================================
+* JUSTIFY CONTENT
+* ===========================================================================
+*/
+
+/**
+*
+*	Utilities for controlling how flex and grid items are positioned along a container's main axis.
+*
+*
+*/
+
+$justify-content-values: (
+	"justify-start": flex-start,
+	"justify-center": center,
+	"justify-end": flex-end,
+	"justify-between": space-between,
+	"justify-around": space-around,
+) !default;
+
+@each $value-namespace, $value in $justify-content-values {
+	.u-#{$value-namespace} {
+		justify-content: $value !important;
+	}
+}
+
+$justify-content-responsive: true;
+
+@if $justify-content-responsive == true {
+	@each $bp-name, $bp-value in $mq-breakpoints {
+		@include mq($from: $bp-name) {
+			@each $value-namespace, $value in $justify-content-values {
+				.u-#{$value-namespace}\@#{$bp-name} {
+					text-transform: $value !important;
+				}
+			}
+		}
+	}
+}
