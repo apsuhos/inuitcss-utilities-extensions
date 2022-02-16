@@ -32,7 +32,7 @@ $justify-content-responsive: true;
 		@include mq($from: $bp-name) {
 			@each $value-namespace, $value in $justify-content-values {
 				.u-#{$value-namespace}\@#{$bp-name} {
-					text-transform: $value !important;
+					justify-content: $value !important;
 				}
 			}
 		}
