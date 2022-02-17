@@ -8,6 +8,7 @@ $flex-direction: true !default;
 $align-items-responsive: true !default;
 $text-transform-responsive: true !default;
 $justify-content-responsive: true !default;
+$order-responsive: true !default;
 
 @import "utilities/utilities.text-align";
 @import "utilities/utilities.float";
@@ -19,3 +20,4 @@ $justify-content-responsive: true !default;
 @import "utilities/utilities.align-items";
 @import "utilities/utilities.text-transform";
 @import "utilities/utilities.justify-content";
+@import "utilities/utilities.order";

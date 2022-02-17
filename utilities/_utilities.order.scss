@@ -1,0 +1,46 @@
+/**
+* ===========================================================================
+* ORDER
+* ===========================================================================
+*/
+
+/**
+*
+*	Utilities for controlling the order of flex and grid items.
+*
+*
+*/
+
+$order-values: (
+	"order-0": 0,
+	"order-1": 1,
+	"order-2": 2,
+	"order-3": 3,
+	"order-4": 4,
+	"order-5": 5,
+	"order-6": 6,
+	"order-7": 7,
+	"order-8": 8,
+	"order-9": 9,
+	"order-10": 10,
+	"order-first": -9999,
+	"order-last": 9999,
+) !default;
+
+@each $value-namespace, $value in $order-values {
+	.u-#{$value-namespace} {
+		order: $value !important;
+	}
+}
+
+@if $order-responsive == true {
+	@each $bp-name, $bp-value in $mq-breakpoints {
+		@include mq($from: $bp-name) {
+			@each $value-namespace, $value in $order-values {
+				.u-#{$value-namespace}\@#{$bp-name} {
+					order: $value !important;
+				}
+			}
+		}
+	}
+}
