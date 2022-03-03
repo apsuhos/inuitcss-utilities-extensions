@@ -1,0 +1,38 @@
+/**
+* ===========================================================================
+* OUTLINE WIDTH
+* ===========================================================================
+*/
+
+/**
+*
+*	Utilities for controlling the width of an element's outline.
+*
+*
+*/
+
+$outline-width-values: (
+	"outline-0": 0,
+	"outline-1": 1px,
+	"outilne-2": 2px,
+	"outline-4": 4px,
+	"outline-8": 8px,
+) !default;
+
+@each $value-namespace, $value in $outline-width-values {
+	.u-#{$value-namespace} {
+		outline-width: $value !important;
+	}
+}
+
+@if $outline-width-responsive == true {
+	@each $bp-name, $bp-value in $mq-breakpoints {
+		@include mq($from: $bp-name) {
+			@each $value-namespace, $value in $outline-width-values {
+				.u-#{$value-namespace}\@#{$bp-name} {
+					order: $value !important;
+				}
+			}
+		}
+	}
+}
