@@ -10,6 +10,7 @@ $text-transform-responsive: true !default;
 $justify-content-responsive: true !default;
 $order-responsive: true !default;
 $outline-width-responsive: true !default;
+$align-self-responsive: true !default;
 
 @import "utilities/utilities.text-align";
 @import "utilities/utilities.float";
@@ -23,3 +24,4 @@ $outline-width-responsive: true !default;
 @import "utilities/utilities.justify-content";
 @import "utilities/utilities.order";
 @import "utilities/utilities.outline-width";
+@import "utilities/utilities.align-self";
